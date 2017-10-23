@@ -82,7 +82,7 @@ function calculate()
 
 
 	//calculation logic
-	equipment_model = "VCE_ABG2820";
+	equipment_model = "Sample Model";
 	equipment_price = 1500000;
 	unit = 1;
 	down_payment_ratio= 0.20;
@@ -148,20 +148,6 @@ function calculate()
 	document.write(beginpara + horiline + endpara);
 
 	document.write("this is the trial culculator for loan of construction equipments");
-	document.write("<p>version 0.2, 2017/08/20, created by Zhao Xiaoqi</p>");
+	document.write("<p>created by Zhao Xiaoqi</p>");
 	
 }
-
-/*
-Release Notes:
-
-version 0.2 (2017/08/20)
-	- add setPercent()
-	- add input form feature
-	- re-layout the output
-
-version 0.2 (2017/08/19)
-	- draft creation
-	- static calculation logic
-	- add drop-down list for equipment model
-*/
