@@ -35,7 +35,15 @@ for i in range(1, term+1):
 for i in range(term+1):
     print(repayment_plan[i])
 
+# below add at 2020/08/09 as 2.1.1.1
+f = open('repayment.txt', 'w')
+for element in repayment_plan:
+    f.write(str(element))   # A list cannot be written into the file directly, need convert to string beforehand
+    f.write('\n')
+f.close()
+
 """
+2.1.1.1 (2020/08/09): add function to write repayment plan into one text file as output
 2.1.1: put calculating logic into function
 2.1.0: update in Python, using list structure
 2.0.0: rewrite in Python
