@@ -6,22 +6,24 @@ public class FinCalc {
         int terms;
         String line = "==============================================================================================";
 
-        assetPrice = 1200000;
-        downPaymentPercentage = 0.2;
+        assetPrice = 635000;
+        downPaymentPercentage = 0.3;
 
         financingAmount = assetPrice * (1 - downPaymentPercentage);
 
-        annualRate = 0.0499;
-        terms = 48;
+        annualRate = 0.0425;
+        terms = 30;
 
         System.out.println("Asset Selling Price: " + assetPrice);
         System.out.println("Downpayment: " + downPaymentPercentage*100 + "%");
         System.out.println("Financing Amount: " + financingAmount);
 
-        installment = 22103.77;
+        // formula of monthly installment:
+        // installment = finance_amount * monthly_rate * (1 + monthly_rate)^term / [(1 + monthly_rate)^n - 1]
+        installment = financingAmount * (annualRate/12) * Math.pow(1+annualRate/12, terms) / (Math.pow(1+annualRate/12, terms) - 1);
 
         System.out.println("Annual Rate: " + annualRate*100 + "%\tTerms: " + terms + " months");
-        System.out.println("Monthly Installment Amount: " + installment);
+        System.out.printf("Monthly Installment Amount: %10.2f", installment);
 
         System.out.println("\n======Here is the Payment Plan======");
         System.out.println(line);
