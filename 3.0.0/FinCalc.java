@@ -1,19 +1,34 @@
+import java.io.*;
+import java.util.*;
+
 public class FinCalc {
     public static void main(String[] arguments) {
-        //Declare the parameters
+        String line = "*".repeat(95);
+        System.out.println(line);
+        System.out.println("Welcome, this is the financial calculator!");
+        System.out.println(line);
+
+        // Declare the parameters
         double assetPrice, downPaymentPercentage, financingAmount, annualRate;
         double installment;
         int terms;
-        String line = "==============================================================================================";
 
-        assetPrice = 635000;
-        downPaymentPercentage = 0.3;
+        // Read inputs from user
+        System.out.println("Please input Asset Selling Price: ");
+        Scanner input = new Scanner(System.in);
+        assetPrice = input.nextDouble();
+        System.out.println("Please input % of down payment: ");
+        downPaymentPercentage = input.nextDouble()/100;
 
         financingAmount = assetPrice * (1 - downPaymentPercentage);
 
-        annualRate = 0.0425;
-        terms = 30;
+        System.out.println("Please input the annual interest rate in %: ");
+        annualRate = input.nextDouble()/100;
+        System.out.println("Please input how many months of the financing: ");
+        terms = input.nextInt();
 
+        System.out.println(line);
+        System.out.println("Your inputs are here:");
         System.out.println("Asset Selling Price: " + assetPrice);
         System.out.println("Downpayment: " + downPaymentPercentage*100 + "%");
         System.out.println("Financing Amount: " + financingAmount);
@@ -22,8 +37,8 @@ public class FinCalc {
         // installment = finance_amount * monthly_rate * (1 + monthly_rate)^term / [(1 + monthly_rate)^n - 1]
         installment = financingAmount * (annualRate/12) * Math.pow(1+annualRate/12, terms) / (Math.pow(1+annualRate/12, terms) - 1);
 
-        System.out.println("Annual Rate: " + annualRate*100 + "%\tTerms: " + terms + " months");
-        System.out.printf("Monthly Installment Amount: %10.2f", installment);
+        System.out.printf("Annual Rate: %10.2f\tTerms: %d months\n", annualRate*100, terms);
+        System.out.printf("Monthly Installment Amount: %10.2f\n", installment);
 
         System.out.println("\n======Here is the Payment Plan======");
         System.out.println(line);
